@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1221">
+  <meta name="description" content="Create a free Vedic birth chart and explore your ascendant, Moon sign, nakshatra and graha placements.">
+  <title>Tara Ved — Vedic Birth Chart</title>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="shell nav">
+      <a class="wordmark" href="#top"><span aria-hidden="true">✺</span> Tara Ved</a>
+      <nav aria-label="Main navigation">
+        <a href="#guide">Chart guide</a>
+        <a class="nav-action" href="#kundli">Create Kundli <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> VEDIC ASTROLOGY</p>
+        <h1 id="hero-title">The sky at<br>your <em>birth.</em></h1>
+        <p class="hero-description">Discover your Janam Kundli, a Vedic map of the planets at the moment you were born.</p>
+        <a class="button" href="#kundli">Create my Kundli <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true"></div>
+    </section>
+    <section class="workspace" id="kundli" aria-labelledby="kundli-title">
+      <div class="shell work-grid">
+        <div class="section-copy">
+          <p class="eyebrow"><span></span> JANAM KUNDLI</p>
+          <h2 id="kundli-title">Create your<br>birth chart</h2>
+          <p>Use the date, local time and city where you were born. Your birth details stay in this browser tab.</p>
+        </div>
+        <form id="birth-form">
+          <noscript><p class="form-error">Enable JavaScript to calculate a chart in your browser.</p></noscript>
+          <div class="form-row">
+            <label for="birth-date">Birth date
+              <input id="birth-date" type="date" min="1900-01-01" required>
+            </label>
+            <label for="birth-time">Birth time
+              <input id="birth-time" type="time" required>
+            </label>
+          </div>
+          <label class="check"><input id="unknown-time" type="checkbox"> I don't know my birth time</label>
+          <label for="birth-city">Birthplace</label>
+          <div class="city-field">
+            <input id="birth-city" type="search" placeholder="Search for a city" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="city-options" required>
+            <ul id="city-options" role="listbox" aria-label="Matching cities" hidden></ul>
+          </div>
+          <p id="city-help" class="field-help" aria-live="polite">Select a city from the suggestions.</p>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <button class="button submit" type="submit" disabled>Generate birth chart <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+      <section id="result" class="shell result" aria-labelledby="result-title" hidden></section>
+    </section>
+    <section class="shell guide" id="guide" aria-labelledby="guide-title">
+      <h2 id="guide-title">Reading your Kundli</h2>
+      <div class="guide-grid">
+        <article><span aria-hidden="true">☉</span><h3>Ascendant</h3><p>Also called Lagna, the zodiac sign rising on the eastern horizon at your birth. It determines where the houses begin.</p></article>
+        <article><span aria-hidden="true">☾</span><h3>Moon sign</h3><p>Also called Chandra Rashi, the sidereal zodiac sign occupied by the Moon at your birth.</p></article>
+        <article><span aria-hidden="true">✧</span><h3>Nakshatra</h3><p>One of 27 divisions of the zodiac. Your birth nakshatra describes the Moon's position in this finer division.</p></article>
+      </div>
+      <details><summary>How is the chart calculated?</summary><p>Tara Ved uses geocentric positions, a Lahiri sidereal offset, mean lunar nodes and whole-sign houses. Birthplace supplies the coordinates and time zone. An unknown time uses local noon for estimated planetary positions and leaves out the ascendant and houses.</p></details>
+    </section>
+  </main>
+  <footer><div class="shell footer"><a class="wordmark" href="#top"><span aria-hidden="true">✺</span> Tara Ved</a><p>Vedic birth charts</p></div></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
