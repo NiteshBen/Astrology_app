@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1221">
+  <meta name="description" content="Check your city's Vedic Panchang, local tithi, sunrise, sunset, Rahu Kaal and muhurat.">
+  <title>Today &amp; Panchang — Tara Ved</title>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="shell nav">
+      <a class="wordmark" href="./"><span aria-hidden="true">✺</span> Tara Ved</a>
+      <nav aria-label="Main navigation">
+        <a aria-current="page" href="./today.html">Today<span class="wide-nav-label"> &amp; Panchang</span></a>
+        <a class="nav-action" href="./#kundli">Create Kundli <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell panchang-page">
+    <header class="day-intro">
+      <p class="eyebrow"><span></span> VEDIC ALMANAC</p>
+      <h1>Today &amp; <em>Panchang</em></h1>
+      <p>Explore the lunar day and traditional timings for any date in your city.</p>
+    </header>
+    <section class="day-controls" aria-label="Panchang filters">
+      <div>
+        <label for="panchang-city">City</label>
+        <div class="city-field">
+          <input id="panchang-city" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="panchang-options" aria-describedby="panchang-city-help">
+          <ul class="city-options" id="panchang-options" role="listbox" aria-label="Matching cities" hidden></ul>
+        </div>
+        <p class="field-help" id="panchang-city-help" aria-live="polite"></p>
+      </div>
+      <div>
+        <label for="panchang-date">Local date</label>
+        <div class="day-nav">
+          <button id="previous-day" type="button" aria-label="Previous day">←</button>
+          <input id="panchang-date" type="date" min="1900-01-01" max="2100-12-31">
+          <button id="next-day" type="button" aria-label="Next day">→</button>
+          <button id="reset-day" type="button">Today</button>
+        </div>
+      </div>
+    </section>
+    <p class="form-error" role="alert" id="panchang-error" hidden></p>
+    <noscript><p>Enable JavaScript to calculate timings in your browser.</p></noscript>
+    <div id="panchang-results"></div>
+    <details>
+      <summary>How are these timings calculated?</summary>
+      <p>Tithi is based on the angle between the Moon and Sun. Sunrise and sunset use the selected city centre and a standard, unobstructed horizon. Rahu Kaal divides daylight into eight intervals and uses the weekday to pick one. Brahma Muhurat uses 96 to 48 minutes before sunrise. Abhijit Muhurat is the middle fifteenth of daylight and is omitted on Wednesday under the convention used here.</p>
+    </details>
+  </main>
+  <footer><div class="shell footer"><a class="wordmark" href="./"><span aria-hidden="true">✺</span> Tara Ved</a><p>Vedic almanac</p></div></footer>
+  <script type="module" src="/src/today.js"></script>
+</body>
+</html>
