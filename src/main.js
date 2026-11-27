@@ -104,7 +104,11 @@ unknown.addEventListener('change', () => {
 })
 
 const gridPlaces = [[1,2],[1,3],[1,4],[2,4],[3,4],[4,4],[4,3],[4,2],[4,1],[3,1],[2,1],[1,1]]
-const abbreviated = { Sun: 'Su', Moon: 'Mo', Mars: 'Ma', Mercury: 'Me', Jupiter: 'Ju', Venus: 'Ve', Saturn: 'Sa', Rahu: 'Ra', Ketu: 'Ke' }
+const grahaSymbols = { Sun: '☉', Moon: '☽', Mars: '♂', Mercury: '☿', Jupiter: '♃', Venus: '♀', Saturn: '♄', Rahu: '☊', Ketu: '☋' }
+
+function grahaLabel(name) {
+  return `<span class="graha-label"><span class="graha-icon" aria-hidden="true">${grahaSymbols[name]}</span>${name}</span>`
+}
 
 function chartGrid(chart) {
   return signs.map((sign, index) => {
@@ -113,7 +117,7 @@ function chartGrid(chart) {
     const ascends = chart.rising?.sign === index
     return `<div class="chart-cell${ascends ? ' rising-cell' : ''}" style="grid-area:${row}/${column}">
       <small>${sign}</small>
-      <div class="chart-symbols">${ascends ? '<abbr title="Ascendant">Asc</abbr>' : ''}${bodies.map(({ name }) => `<abbr title="${name}">${abbreviated[name]}</abbr>`).join(' ')}</div>
+      <div class="chart-symbols">${ascends ? '<abbr title="Ascendant">Asc</abbr>' : ''}${bodies.map(({ name }) => grahaLabel(name)).join('')}</div>
     </div>`
   }).join('')
 }
@@ -135,7 +139,7 @@ function renderChart(chart) {
       <div class="detail-card"><h3>Rashi chart</h3><p>South Indian layout</p><div class="chart-grid" aria-hidden="true">${chartGrid(chart)}<div class="chart-center"><b>✺</b><span>D1</span></div></div></div>
       <div class="detail-card"><h3>Planetary placements</h3>
         <table><thead><tr><th scope="col">Graha</th><th scope="col">Sign</th><th scope="col">Degree</th>${rising ? '<th scope="col">House</th>' : ''}</tr></thead>
-        <tbody>${planets.map((planet) => `<tr><th scope="row">${planet.name}</th><td>${signs[planet.sign]}</td><td>${degreesInSign(planet.longitude)}</td>${rising ? `<td>${planet.house}</td>` : ''}</tr>`).join('')}</tbody></table>
+        <tbody>${planets.map((planet) => `<tr><th scope="row">${grahaLabel(planet.name)}</th><td>${signs[planet.sign]}</td><td>${degreesInSign(planet.longitude)}</td>${rising ? `<td>${planet.house}</td>` : ''}</tr>`).join('')}</tbody></table>
       </div>
     </div>`
   result.querySelector('#birth-summary').textContent = [

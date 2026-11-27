@@ -59,11 +59,15 @@ input::placeholder{color:#aeb4c3}
 .summaries small{font-size:13px;color:var(--muted)}
 .result-detail{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}
 .detail-card h3,.guide-grid h3{font:24px/1.2 var(--display)}
-.chart-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);aspect-ratio:1;max-width:360px;margin:18px auto 0;border:1px solid #826d56;border-radius:7px;overflow:hidden;gap:1px;background:#826d56}
+.chart-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(72px,auto));max-width:400px;margin:18px auto 0;border:1px solid #826d56;border-radius:7px;overflow:hidden;gap:1px;background:#826d56}
 .chart-cell,.chart-center{background:#141e30;padding:5px;text-align:center}
 .chart-cell small{display:block;font-size:clamp(8px,1.8vw,12px);color:var(--muted)}
 .rising-cell{background:#38303a}
-.chart-symbols{font-size:12px;color:var(--gold);overflow-wrap:anywhere}
+@font-face{font-family:Graha Symbols;src:url('../assets/graha-symbols.woff') format('woff');font-display:swap}
+.graha-label{display:inline-flex;align-items:center;gap:.3em;white-space:nowrap}
+.graha-icon{font:1.15em/1 "Graha Symbols",sans-serif;color:var(--gold);min-width:1em;text-align:center}
+.chart-symbols{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:4px;font-size:clamp(9px,2.6vw,12px);line-height:1.3}
+.chart-symbols abbr{color:var(--gold)}
 .chart-center{grid-area:2/2/4/4;display:grid;align-content:center;justify-items:center;color:var(--gold)}
 .chart-center b{font-size:35px;font-weight:400}
 table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;text-align:left}
